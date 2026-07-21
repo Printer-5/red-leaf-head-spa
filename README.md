@@ -1,19 +1,53 @@
-# Red Leaf Head Spa & Massage — Premium Website
+# Red Leaf Head Spa & Massage
 
-## Included
-- 7 responsive pages
-- Real spa photography loaded from Unsplash
-- Gentle scroll animation with reduced-motion support
-- Custom gold focus indicator instead of the browser blue outline
-- Square Appointments buttons and optional embedded booking panel
-- Square gift-card support
-- Pricing, packages, memberships, testimonials and FAQ
+Mobile-first Next.js 16 / React 19 / Tailwind CSS 4 website.
 
-## Connect Square
-Open `script.js` and replace `PASTE_YOUR_SQUARE_BOOKING_URL_HERE` with the public booking URL from Square Appointments. Replace the gift-card placeholder with your Square eGift Card URL.
+## What was fixed
 
-## Before launch
-Replace the address, phone, email, sample reviews and any policies. Confirm all pricing and service durations in Square.
+- The image overlay exists only on the home page.
+- About, Services, Pricing, Memberships, Gift Cards and Contact use separate image and text regions.
+- Text always remains fully opaque.
+- Mobile layouts use one-column stacking and do not cut words or overflow horizontally.
+- GitHub Actions uses Node.js 24-compatible actions.
 
-## Images
-The current photos are remotely hosted Unsplash images. For a final brand launch, replace them with professional photos of the actual Red Leaf location and treatments.
+## Run locally
+
+```bash
+npm install
+npm run dev
+```
+
+Then open `http://localhost:3000`.
+
+## Deploy to GitHub Pages
+
+1. Upload all files to your repository.
+2. Go to **Settings → Pages**.
+3. Under **Source**, choose **GitHub Actions**.
+4. Push to `main`.
+5. Open the **Actions** tab and wait for the deploy workflow to finish.
+
+Do not use “Deploy from a branch” for this Next.js version. Use **GitHub Actions**.
+
+## Add Square links
+
+Go to:
+
+**Repository → Settings → Secrets and variables → Actions → New repository secret**
+
+Create:
+
+- `NEXT_PUBLIC_SQUARE_BOOKING_URL`
+- `NEXT_PUBLIC_SQUARE_GIFT_CARD_URL`
+
+Paste the full Square URLs as the secret values.
+
+## Update business details
+
+Search the project for:
+
+- `Your spa address`
+- `(000) 000-0000`
+- `hello@redleafheadspa.com`
+
+Replace these placeholders before launch.

@@ -222,3 +222,42 @@ p,a,span,strong,small,li,h1,h2,h3,blockquote{overflow-wrap:break-word;word-break
     padding-top:26px;
   }
 }
+
+/* Permanent visibility fix for About and Services pages */
+.no-fade-page main,
+.no-fade-page main section,
+.no-fade-page main article,
+.no-fade-page main div,
+.no-fade-page main p,
+.no-fade-page main h1,
+.no-fade-page main h2,
+.no-fade-page main h3,
+.no-fade-page main ul,
+.no-fade-page main li,
+.no-fade-page main a,
+.no-fade-page main img {
+  opacity: 1 !important;
+  visibility: visible !important;
+  filter: none !important;
+  transform: none !important;
+}
+.no-fade-page .service-row > div p:not(.eyebrow),
+.no-fade-page .image-text > div p:not(.eyebrow),
+.no-fade-page .story > div p:not(.eyebrow),
+.no-fade-page .value-grid p {
+  color: #33443a !important;
+}
+@media (max-width: 720px) {
+  .no-fade-page .service-row > div,
+  .no-fade-page .image-text > div,
+  .no-fade-page .story > div {
+    background: #fffdf8 !important;
+    color: #203028 !important;
+    opacity: 1 !important;
+  }
+  .no-fade-page .service-row > div p:not(.eyebrow),
+  .no-fade-page .image-text > div p:not(.eyebrow),
+  .no-fade-page .story > div p:not(.eyebrow) {
+    color: #3f4f46 !important;
+  }
+}

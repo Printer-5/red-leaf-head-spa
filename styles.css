@@ -104,3 +104,91 @@ p,a,span,strong,small,li,h1,h2,h3,blockquote{overflow-wrap:break-word;word-break
   .subhero-content{margin-top:215px;padding-top:30px}
   .subhero-content h1{font-size:2.75rem}
 }
+
+/* Definitive clean mobile layouts for pricing, memberships and gift cards */
+@media (max-width:720px){
+  .pricing-hero,.membership-hero,.gifts-hero{
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    padding:72px 0 0;
+    margin:0;
+    background-image:none!important;
+    background-color:var(--forest);
+    overflow:hidden;
+  }
+  .pricing-hero::before,.membership-hero::before,.gifts-hero::before{
+    content:"";
+    display:block;
+    width:100%;
+    height:260px;
+    flex:0 0 260px;
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+  }
+  .pricing-hero::before{
+    background-image:linear-gradient(rgba(16,37,30,.18),rgba(16,37,30,.30)),url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1200&q=82');
+  }
+  .membership-hero::before{
+    background-image:linear-gradient(rgba(16,37,30,.16),rgba(16,37,30,.28)),url('https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=1200&q=82');
+  }
+  .gifts-hero::before{
+    background-image:linear-gradient(rgba(16,37,30,.16),rgba(16,37,30,.28)),url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1200&q=82');
+  }
+  .pricing-hero .subhero-content,.membership-hero .subhero-content,.gifts-hero .subhero-content{
+    position:static;
+    width:100%;
+    max-width:none;
+    margin:0;
+    padding:32px 20px 42px;
+    background:var(--forest);
+  }
+  .pricing-hero .subhero-content h1,.membership-hero .subhero-content h1,.gifts-hero .subhero-content h1{
+    width:100%;
+    max-width:100%;
+    margin:0 0 16px;
+    font-size:clamp(2.65rem,12vw,3.5rem);
+    line-height:1;
+    overflow-wrap:normal;
+    word-break:normal;
+  }
+  .pricing-hero .subhero-content p,.membership-hero .subhero-content p,.gifts-hero .subhero-content p{
+    max-width:100%;
+    overflow-wrap:normal;
+    word-break:normal;
+  }
+
+  .pricing-wrap{width:100%;max-width:100%}
+  .price-section{display:block;width:100%;padding:42px 0}
+  .price-title{margin-bottom:22px}
+  .price-title h2{font-size:clamp(2.4rem,11vw,3.1rem);line-height:1.02}
+  .price-list,.price-list>div,.price-list span,.price-list strong,.price-list small,.price-list b{min-width:0;max-width:100%}
+  .price-list>div{display:grid;grid-template-columns:1fr;gap:5px;padding:18px 0}
+  .price-list strong{display:block;line-height:1.35;overflow-wrap:normal;word-break:normal}
+  .price-list small{display:block;line-height:1.5}
+  .price-list b{display:block;text-align:left;white-space:normal;line-height:1.35}
+  .compact{display:block}
+
+  .membership-grid{display:grid;grid-template-columns:1fr;gap:18px;width:100%;max-width:100%}
+  .membership-grid article,.membership-grid .featured-plan{width:100%;max-width:100%;padding:28px 20px;transform:none;overflow:hidden}
+  .membership-grid h2{font-size:clamp(2.9rem,13vw,3.7rem);line-height:1}
+  .membership-grid h2 small{display:inline;font-size:.78rem;white-space:nowrap}
+  .membership-grid ul{margin:18px 0 25px;padding-left:20px}
+  .membership-grid li{margin:0 0 10px;line-height:1.5;overflow-wrap:normal;word-break:normal}
+  .membership-grid .btn{width:100%;padding:0 14px}
+
+  .gifts-hero + .section .split{display:grid;grid-template-columns:1fr;gap:34px}
+  .gifts-hero + .section .split>div:first-child{min-width:0}
+  .gifts-hero + .section h2{font-size:clamp(2.55rem,11vw,3.25rem);line-height:1.02}
+  .gift-card-mock{width:100%;max-width:100%;min-height:250px;padding:26px 20px;overflow:hidden}
+  .gift-card-mock span,.gift-card-mock strong,.gift-card-mock small{max-width:100%;overflow-wrap:normal;word-break:normal}
+  .gift-values{display:grid;grid-template-columns:1fr;gap:12px;width:100%}
+  .gift-values div{width:100%;min-width:0;padding:22px 18px}
+  .gift-values span{display:block;margin-top:4px;overflow-wrap:normal;word-break:normal}
+}
+
+@media (max-width:390px){
+  .pricing-hero::before,.membership-hero::before,.gifts-hero::before{height:225px;flex-basis:225px}
+  .pricing-hero .subhero-content,.membership-hero .subhero-content,.gifts-hero .subhero-content{padding:28px 18px 38px}
+}

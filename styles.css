@@ -192,3 +192,33 @@ p,a,span,strong,small,li,h1,h2,h3,blockquote{overflow-wrap:break-word;word-break
   .pricing-hero::before,.membership-hero::before,.gifts-hero::before{height:225px;flex-basis:225px}
   .pricing-hero .subhero-content,.membership-hero .subhero-content,.gifts-hero .subhero-content{padding:28px 18px 38px}
 }
+
+/* Keep About and Services content fully visible and crisp */
+.no-fade-page .reveal,
+.no-fade-page .reveal-left,
+.no-fade-page .reveal-right{
+  opacity:1 !important;
+  transform:none !important;
+  transition:none !important;
+}
+.no-fade-page .service-row > div,
+.no-fade-page .image-text > div,
+.no-fade-page .story > div{
+  color:var(--ink);
+}
+.no-fade-page .service-row > div p:not(.eyebrow),
+.no-fade-page .image-text > div p:not(.eyebrow),
+.no-fade-page .story > div p:not(.eyebrow){
+  color:#4f5b54;
+  opacity:1;
+}
+@media(max-width:720px){
+  .no-fade-page .service-row,
+  .no-fade-page .image-text{
+    background:var(--ivory);
+  }
+  .no-fade-page .service-row > div,
+  .no-fade-page .image-text > div{
+    padding-top:26px;
+  }
+}

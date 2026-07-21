@@ -1,1 +1,47 @@
-const SQUARE_BOOKING_URL="PASTE_YOUR_SQUARE_BOOKING_URL_HERE";const SQUARE_GIFT_CARD_URL="PASTE_YOUR_SQUARE_GIFT_CARD_URL_HERE";const configured=v=>v&&!v.startsWith("PASTE_");document.querySelectorAll(".square-booking-link").forEach(a=>{a.href=configured(SQUARE_BOOKING_URL)?SQUARE_BOOKING_URL:"contact.html";if(configured(SQUARE_BOOKING_URL)){a.target="_blank";a.rel="noopener"}});document.querySelectorAll(".square-gift-card-link").forEach(a=>{a.href=configured(SQUARE_GIFT_CARD_URL)?SQUARE_GIFT_CARD_URL:"contact.html";if(configured(SQUARE_GIFT_CARD_URL)){a.target="_blank";a.rel="noopener"}});const panel=document.getElementById("square-booking-panel");if(panel&&configured(SQUARE_BOOKING_URL)){panel.innerHTML=`<iframe src="${SQUARE_BOOKING_URL}" title="Book with Square" loading="lazy" style="width:100%;height:620px;border:0;border-radius:14px"></iframe>`}const menu=document.querySelector(".menu-toggle"),nav=document.querySelector(".main-nav");if(menu&&nav)menu.addEventListener("click",()=>{const open=nav.classList.toggle("open");menu.setAttribute("aria-expanded",String(open))});document.querySelectorAll(".main-nav a").forEach(a=>a.addEventListener("click",()=>nav?.classList.remove("open")));const items=document.querySelectorAll(".reveal,.reveal-left,.reveal-right");if("IntersectionObserver"in window&&!matchMedia("(prefers-reduced-motion: reduce)").matches){const io=new IntersectionObserver((entries,o)=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("is-visible");o.unobserve(e.target)}}),{threshold:.12,rootMargin:"0px 0px -35px 0px"});items.forEach(i=>io.observe(i))}else items.forEach(i=>i.classList.add("is-visible"));document.getElementById("year").textContent=new Date().getFullYear();
+
+const SQUARE_BOOKING_URL = "PASTE_YOUR_SQUARE_BOOKING_URL_HERE";
+const SQUARE_GIFT_CARD_URL = "PASTE_YOUR_SQUARE_GIFT_CARD_URL_HERE";
+
+const configured = value => value && !value.startsWith("PASTE_");
+
+document.querySelectorAll(".square-booking-link").forEach(link => {
+  link.href = configured(SQUARE_BOOKING_URL) ? SQUARE_BOOKING_URL : "contact.html";
+  if (configured(SQUARE_BOOKING_URL)) {
+    link.target = "_blank";
+    link.rel = "noopener";
+  }
+});
+
+document.querySelectorAll(".square-gift-card-link").forEach(link => {
+  link.href = configured(SQUARE_GIFT_CARD_URL) ? SQUARE_GIFT_CARD_URL : "contact.html";
+  if (configured(SQUARE_GIFT_CARD_URL)) {
+    link.target = "_blank";
+    link.rel = "noopener";
+  }
+});
+
+const toggle = document.querySelector(".menu-toggle");
+const nav = document.querySelector(".main-nav");
+if (toggle && nav) {
+  toggle.addEventListener("click", () => {
+    const open = nav.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", String(open));
+  });
+}
+
+const reveals = document.querySelectorAll(".reveal");
+if ("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: .12 });
+  reveals.forEach(el => observer.observe(el));
+} else {
+  reveals.forEach(el => el.classList.add("visible"));
+}
+
+document.getElementById("year").textContent = new Date().getFullYear();

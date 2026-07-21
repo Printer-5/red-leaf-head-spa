@@ -1,53 +1,30 @@
-# Red Leaf Head Spa & Massage
+# Red Leaf Clean Rebuild
 
-Mobile-first Next.js 16 / React 19 / Tailwind CSS 4 website.
+This is a clean, mobile-first static website for GitHub Pages.
 
-## What was fixed
+## Important design change
+Only the homepage uses an image overlay.
+All interior pages use:
+1. image section
+2. solid text section
 
-- The image overlay exists only on the home page.
-- About, Services, Pricing, Memberships, Gift Cards and Contact use separate image and text regions.
-- Text always remains fully opaque.
-- Mobile layouts use one-column stacking and do not cut words or overflow horizontally.
-- GitHub Actions uses Node.js 24-compatible actions.
+This prevents faded text and overlay problems.
 
-## Run locally
+## Upload to GitHub Pages
+1. Unzip the package.
+2. Upload all files to the repository root.
+3. Settings → Pages.
+4. Source: Deploy from a branch.
+5. Branch: main.
+6. Folder: / (root).
 
-```bash
-npm install
-npm run dev
-```
+## Add Square
+Open `script.js` and replace:
+- `PASTE_YOUR_SQUARE_BOOKING_URL_HERE`
+- `PASTE_YOUR_SQUARE_GIFT_CARD_URL_HERE`
 
-Then open `http://localhost:3000`.
-
-## Deploy to GitHub Pages
-
-1. Upload all files to your repository.
-2. Go to **Settings → Pages**.
-3. Under **Source**, choose **GitHub Actions**.
-4. Push to `main`.
-5. Open the **Actions** tab and wait for the deploy workflow to finish.
-
-Do not use “Deploy from a branch” for this Next.js version. Use **GitHub Actions**.
-
-## Add Square links
-
-Go to:
-
-**Repository → Settings → Secrets and variables → Actions → New repository secret**
-
-Create:
-
-- `NEXT_PUBLIC_SQUARE_BOOKING_URL`
-- `NEXT_PUBLIC_SQUARE_GIFT_CARD_URL`
-
-Paste the full Square URLs as the secret values.
-
-## Update business details
-
-Search the project for:
-
-- `Your spa address`
-- `(000) 000-0000`
-- `hello@redleafheadspa.com`
-
-Replace these placeholders before launch.
+## Replace placeholders
+Search for:
+- Your spa address
+- (000) 000-0000
+- hello@redleafheadspa.com

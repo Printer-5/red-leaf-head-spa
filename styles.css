@@ -4,7 +4,7 @@
 html,body{width:100%;max-width:100%;overflow-x:clip;-webkit-text-size-adjust:100%}
 main,header,footer,section,nav,div,article{min-width:0}
 img,video,iframe,svg{max-width:100%;height:auto}
-p,a,span,strong,small,li,h1,h2,h3,blockquote{overflow-wrap:anywhere;word-break:normal}
+p,a,span,strong,small,li,h1,h2,h3,blockquote{overflow-wrap:break-word;word-break:normal;hyphens:none}
 .hero-content,.subhero>div:last-child,.split>*,.experience>*,.service-row>*,.price-section>*,.contact-grid>*,.square-section>*{min-width:0}
 .price-list b{white-space:normal;text-align:right}
 .square-panel iframe{display:block;width:100%!important;max-width:100%;border:0}
@@ -45,4 +45,62 @@ p,a,span,strong,small,li,h1,h2,h3,blockquote{overflow-wrap:anywhere;word-break:n
   .hero h1,.subhero h1{font-size:3.05rem}
   .photo-card h2,.photo-card.large h2{font-size:2.5rem}
   .hours-card>div{flex-direction:column;gap:2px}.hours-card b{text-align:left}
+}
+
+
+/* Clean mobile hero and typography correction */
+.subhero-content{position:relative;z-index:2;max-width:800px;min-width:0}
+.subhero-content h1,.subhero-content p,.price-list strong,.membership-grid li,.gift-values span,.contact-grid p{word-break:normal;overflow-wrap:break-word;hyphens:none}
+
+@media(max-width:720px){
+  .subhero{
+    display:block;
+    min-height:0;
+    padding:0;
+    padding-top:72px;
+    background-size:100% 280px;
+    background-repeat:no-repeat;
+    background-position:center 72px;
+    background-color:var(--forest);
+    overflow:visible;
+  }
+  .subhero-content{
+    max-width:none;
+    margin-top:250px;
+    padding:34px 20px 44px;
+    background:var(--forest);
+  }
+  .subhero-content .eyebrow{margin-bottom:12px}
+  .subhero-content h1{
+    max-width:100%;
+    margin-bottom:18px;
+    font-size:clamp(2.8rem,12.5vw,3.75rem);
+    line-height:.98;
+    text-wrap:balance;
+  }
+  .subhero-content p:last-child{
+    max-width:34rem;
+    margin-bottom:0;
+    color:rgba(255,255,255,.82);
+    font-size:.98rem;
+    line-height:1.65;
+  }
+  .price-list strong,.membership-grid li,.gift-values span,.contact-grid p,.hours-card span,.hours-card b{
+    overflow-wrap:normal;
+    word-break:normal;
+  }
+  .price-list>div{width:100%}
+  .price-list span,.price-list b{width:100%}
+  .membership-grid article{overflow:visible}
+  .membership-grid ul{padding-left:20px}
+  .gift-card-mock strong{font-size:clamp(2.1rem,10vw,3rem);line-height:1.05}
+  .gift-values div{min-width:0}
+  .gift-values span{line-height:1.45}
+  .contact-grid h2{font-size:clamp(2.65rem,11vw,3.5rem);line-height:1.02}
+}
+
+@media(max-width:390px){
+  .subhero{background-size:100% 245px}
+  .subhero-content{margin-top:215px;padding-top:30px}
+  .subhero-content h1{font-size:2.75rem}
 }
